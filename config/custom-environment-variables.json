@@ -1,25 +1,28 @@
 {
   "api": {
-    "allowCors": "COMMUNITY_API_ALLOW_CORS",
-    "secret": "COMMUNITY_API_SECRET",
-    "tokenExpiresIn": "COMMUNITY_TOKEN_EXPIRES_IN",
+    "allowCors": "GAME_API_ALLOW_CORS",
+    "secret": "GAME_API_SECRET",
+    "tokenExpiresIn": "GAME_TOKEN_EXPIRES_IN",
     "port": "PORT"
   },
   "aws": {
     "secrets": {
-      "secretId": "COMMUNITY_AWS_SECRET_ID",
+      "secretId": "GAME_AWS_SECRET_ID",
        "manager": {
-        "region": "COMMUNITY_AWS_SECRET_MANAGER_REGION"
+        "region": "GAME_AWS_SECRET_MANAGER_REGION"
       }
     }
   },
   "mongo": {
-    "uri": "COMMUNITY_MONGO_URI",
-    "debug": "COMMUNITY_MONGO_DEBUG"
+    "uri": "GAME_MONGO_URI",
+    "debug": "GAME_MONGO_DEBUG"
   },
   "secrets": {
     "accounts": {
-      "seed": "COMMUNITY_SECRETS_ACCOUNTS_SEED"
+      "seed": "GAME_SECRETS_ACCOUNTS_SEED"
     }
+  },
+  "crypto": {
+    "jwt": "GAME_CRYPTO_JWT"
   }
 }

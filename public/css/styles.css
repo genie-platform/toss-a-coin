@@ -1,0 +1,29 @@
+.prize {
+  padding: 20px;
+}
+
+.class {
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 20px;
+  text-align: center;
+  /* margin: 20px; */
+}
+
+.account {
+  padding: 20px;
+}
+
+.toss {
+  padding: 5px;
+  margin: 10px;
+}

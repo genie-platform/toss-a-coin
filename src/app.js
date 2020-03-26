@@ -7,6 +7,7 @@ const paginate = require('express-paginate')
 const process = require('process')
 const util = require('util')
 const config = require('config')
+const path = require('path')
 require('express-async-errors')
 
 async function init () {
@@ -28,11 +29,13 @@ async function init () {
 
   app.use(paginate.middleware(10, 50))
 
+  app.use(express.static(path.join(__dirname, '../public')))
+
   mongoose.set('debug', config.get('mongo.debug'))
   mongoose.set('useFindAndModify', false)
   mongoose.set('useCreateIndex', true)
 
-  mongoose.connect(config.get('mongo.uri')).catch((error) => {
+  mongoose.connect(config.get('mongo.uri'), config.get('mongo.options')).catch((error) => {
     console.error(error)
     process.exit(1)
   })
