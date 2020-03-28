@@ -3,7 +3,11 @@ module.exports = {
     allowCors: true,
     secret: 'secret',
     tokenExpiresIn: '7d',
-    port: 3001
+    port: 3001,
+    auth: {
+      google: {
+      }
+    }
   },
   mongo: {
     debug: true,

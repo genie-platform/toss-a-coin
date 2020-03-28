@@ -1,6 +1,7 @@
 const router = require('express').Router()
 
 router.use('/play', require('./play'))
+router.use('/login', require('./login'))
 
 
 router.use(function (err, req, res, next) {

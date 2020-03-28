@@ -1,11 +1,14 @@
 <!doctype html>
 <html>
   <head>
+    <meta name="google-signin-client_id" content="258894479393-0msb45loib4653r6kq2bc21kdiq0jbr4.apps.googleusercontent.com">
     <title>Roll the game</title>
     <script src="/js/main.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body onload="load()">
+    <a href="/api/v1/login/google">Sign In with Google</a>
     <div class="center">
       <div class="prize">
         Win prize of <span id="prize"></span>$

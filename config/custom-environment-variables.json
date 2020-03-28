@@ -3,7 +3,13 @@
     "allowCors": "GAME_API_ALLOW_CORS",
     "secret": "GAME_API_SECRET",
     "tokenExpiresIn": "GAME_TOKEN_EXPIRES_IN",
-    "port": "PORT"
+    "port": "PORT",
+    "auth": {
+      "google": {
+        "clientID": "GAME_API_AUTH_GOOGLE_CLIENT_ID",
+        "clientSecret": "GAME_API_AUTH_GOOGLE_CLIENT_SECRET"
+      }
+    }
   },
   "aws": {
     "secrets": {
@@ -24,5 +30,8 @@
   },
   "crypto": {
     "jwt": "GAME_CRYPTO_JWT"
+  },
+  "auth": {
+
   }
 }

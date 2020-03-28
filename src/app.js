@@ -8,6 +8,7 @@ const process = require('process')
 const util = require('util')
 const config = require('config')
 const path = require('path')
+
 require('express-async-errors')
 
 async function init () {
@@ -41,6 +42,9 @@ async function init () {
   })
 
   require('./models')
+
+  const passport = require('@services/passport')
+  app.use(passport.initialize())
 
   app.use(require('./routes'))
 

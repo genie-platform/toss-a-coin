@@ -38,7 +38,7 @@ function claim() {
     document.getElementById("win").classList.add('hidden')
     document.getElementById("claimed").classList.remove('hidden')
 }
-
+  
 function load() {
     fetchPrize()
 }
