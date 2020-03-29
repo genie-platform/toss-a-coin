@@ -9,6 +9,11 @@ module.exports = {
       }
     }
   },
+  session: {
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+  },
   mongo: {
     debug: true,
     uri: 'mongodb://localhost/test',

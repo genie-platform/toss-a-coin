@@ -1,17 +1,8 @@
-const jwt = require('express-jwt')
-const config = require('config')
-
-const secret = config.get('api.secret')
-
-var auth = {
-  required: jwt({
-    secret: secret,
-    credentialsRequired: true
-  }),
-  optional: jwt({
-    secret: secret,
-    credentialsRequired: false
-  })
+const auth = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    next(new Error('User is not Authenticated'))
+  }
 }
-
 module.exports = auth

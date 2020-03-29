@@ -1,18 +1,19 @@
 const router = require('express').Router()
 const request = require('request-promise-native')
 const config = require('config')
+const auth = require('../auth')
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
+function getRandomInt (max) {
+  return Math.floor(Math.random() * Math.floor(max))
 }
 
-router.post('/toss', async (req, res, next) => {
-  const won = getRandomInt(4) == 0
+router.post('/toss', auth, async (req, res, next) => {
+  const won = getRandomInt(4) === 0
   if (won) {
-    const winnerId = getRandomInt(1000).toString()
+    const winnerId = req.user.id
     await request.post(`${config.get('crypto.apiBase')}/prizes`, {
       headers: {
-        "Authorization": `Bearer ${config.get('crypto.jwt')}`
+        'Authorization': `Bearer ${config.get('crypto.jwt')}`
       },
       json: true,
       body: {
@@ -22,19 +23,20 @@ router.post('/toss', async (req, res, next) => {
     })
     return res.json({ data: {
       won,
-      winnerId 
-    }})
+      winnerId
+    } })
   }
   return res.json({ data: {
-      won
-  }})
+    won
+  } })
 })
 
-router.post('/claim', async (req, res, next) => {
-  const {winnerId, winnerAccountAddress } = req.body
+router.post('/claim', auth, async (req, res, next) => {
+  const winnerId = req.user.id
+  const { winnerAccountAddress } = req.body
   await request.post(`${config.get('crypto.apiBase')}/prizes/claim`, {
     headers: {
-      "Authorization": `Bearer ${config.get('crypto.jwt')}`
+      'Authorization': `Bearer ${config.get('crypto.jwt')}`
     },
     json: true,
     body: {
@@ -48,10 +50,9 @@ router.post('/claim', async (req, res, next) => {
 router.get('/prize', async (req, res, next) => {
   const response = await request.get(`${config.get('crypto.apiBase')}/prizes/nextPrize/`, {
     headers: {
-      "Authorization": `Bearer ${config.get('crypto.jwt')}`
+      'Authorization': `Bearer ${config.get('crypto.jwt')}`
     }
   })
-  console.log({ response })
   return res.send(response)
 })
 
