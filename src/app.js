@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const paginate = require('express-paginate')
-const session = require('express-session')
 const process = require('process')
 const util = require('util')
 const config = require('config')
@@ -28,7 +27,6 @@ async function init () {
 
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(bodyParser.json())
-  app.use(session(config.get('session')))
 
   app.use(paginate.middleware(10, 50))
 
@@ -44,10 +42,6 @@ async function init () {
   })
 
   require('./models')
-
-  const passport = require('@services/passport')
-  app.use(passport.initialize())
-  app.use(passport.session())
 
   app.use(require('./routes'))
 

@@ -1,5 +1,4 @@
 const router = require('express').Router()
-const passport = require('@services/passport')
 const jwt = require('jsonwebtoken')
 const config = require('config')
 const mongoose = require('mongoose')
@@ -11,11 +10,6 @@ const secretOptions = config.get('api.secretOptions')
 
 const User = mongoose.model('User')
 const client = new OAuth2Client(clientId)
-
-router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
-
-router.get('/google/callback',
-  passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }))
 
 router.post('/google', async (req, res) => {
   const { tokenId } = req.body
