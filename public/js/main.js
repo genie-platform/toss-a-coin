@@ -27,6 +27,19 @@ function toss() {
     }
 }
 
+function playRound() {
+    const response = window.fetch('/api/v1/rounds/act', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            guess: 2
+        })
+    })
+}
+
+
 function claim() {
     var accountAddress = document.getElementById("accountAddress").value
     console.log(accountAddress)
