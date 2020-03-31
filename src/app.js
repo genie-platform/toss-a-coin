@@ -32,6 +32,8 @@ async function init () {
 
   app.use(paginate.middleware(10, 50))
 
+  app.use(express.static(path.join(__dirname, '../public')))
+
   mongoose.set('debug', config.get('mongo.debug'))
   mongoose.set('useFindAndModify', false)
   mongoose.set('useCreateIndex', true)
@@ -48,8 +50,6 @@ async function init () {
   app.use(passport.session())
 
   app.use(require('./routes'))
-
-  app.use(express.static(path.join(__dirname, '../public')))
 
   // catch 404 and forward to error handler
   app.use(function (req, res, next) {

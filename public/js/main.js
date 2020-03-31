@@ -1,5 +1,10 @@
 "use strict";
 
+var state = {
+  winnerId: undefined,
+  jwt: undefined 
+}
+
 var winnerId
 
 function fetchPrize() {
@@ -28,15 +33,16 @@ function toss() {
 }
 
 function playRound() {
-    const response = window.fetch('/api/v1/rounds/act', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            guess: 2
-        })
+const response = window.fetch('/api/v1/rounds/act', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${state.jwt}`
+    },
+    body: JSON.stringify({
+        guess: 2
     })
+})
 }
 
 

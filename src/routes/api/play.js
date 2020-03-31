@@ -7,7 +7,7 @@ function getRandomInt (max) {
   return Math.floor(Math.random() * Math.floor(max))
 }
 
-router.post('/toss', auth, async (req, res, next) => {
+router.post('/toss', auth.required, async (req, res, next) => {
   const won = getRandomInt(4) === 0
   if (won) {
     const winnerId = req.user.id
@@ -31,7 +31,7 @@ router.post('/toss', auth, async (req, res, next) => {
   } })
 })
 
-router.post('/claim', auth, async (req, res, next) => {
+router.post('/claim', auth.required, async (req, res, next) => {
   const winnerId = req.user.id
   const { winnerAccountAddress } = req.body
   await request.post(`${config.get('crypto.apiBase')}/prizes/claim`, {
