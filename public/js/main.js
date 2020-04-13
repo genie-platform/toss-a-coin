@@ -26,7 +26,6 @@ function toss() {
           'Authorization': `Bearer ${state.jwt}`
         }
       }).then(response => response.json()).then(({ data }) => {
-        debugger
         if (data.won) {
             winnerId = data.winnerId
             document.getElementById("win").classList.remove("hidden");
