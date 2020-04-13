@@ -14,7 +14,7 @@ module.exports = {
   },
   mongo: {
     debug: true,
-    uri: 'mongodb://localhost/last-survivor',
+    uri: 'mongodb://localhost/test',
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true

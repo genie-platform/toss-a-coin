@@ -1,5 +1,4 @@
 function onSignIn (googleUser) {
-  debugger
   var tokenId = googleUser.getAuthResponse().id_token
   window.fetch('/api/v1/login/google', {
     method: 'POST',

@@ -6,5 +6,4 @@ router.get('/is_running', (req, res, next) => {
   res.send({ response: 'ok' })
 })
 
-
 module.exports = router
