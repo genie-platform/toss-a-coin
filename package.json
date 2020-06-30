@@ -44,7 +44,7 @@
     "debug": "2.6.9",
     "express": "4.16.3",
     "express-async-errors": "^2.1.2",
-    "express-jwt": "^5.3.1",
+    "express-jwt": "^6.0.0",
     "express-paginate": "^1.0.0",
     "google-auth-library": "^6.0.0",
     "jsonwebtoken": "^8.4.0",
