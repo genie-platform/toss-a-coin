@@ -37,7 +37,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.4",
     "async": "^2.6.1",
-    "aws-sdk": "^2.405.0",
+    "aws-sdk": "^2.814.0",
     "body-parser": "^1.18.3",
     "config": "^1.30.0",
     "cors": "2.7.1",
